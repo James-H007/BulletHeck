@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://csgkc3ffic2s"]
+
+[ext_resource type="Script" path="res://boss.gd" id="1_b5sy1"]
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_b5sy1")
+
+[node name="BossPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(184, 144)

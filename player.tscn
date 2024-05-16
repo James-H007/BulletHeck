@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqwbfbvvmc5f6"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_4nxw4"]
+[ext_resource type="Texture2D" uid="uid://djowo00wmbwvc" path="res://body.png" id="3_5afur"]
+[ext_resource type="PackedScene" uid="uid://cv3nwus5cs7sf" path="res://gun.tscn" id="3_u3hi1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ropvi"]
+bg_color = Color(0.568627, 0.611765, 0.623529, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psvc5"]
+bg_color = Color(0, 0.721569, 0.305882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bkge"]
+size = Vector2(75.0527, 56.2294)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vaqim"]
+radius = 37.5408
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(395, 732)
+scale = Vector2(103.927, 80.0299)
+script = ExtResource("1_4nxw4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -475.0
+offset_right = -81.0
+offset_bottom = 475.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Health_bar" type="ProgressBar" parent="CanvasLayer/ColorRect"]
+unique_name_in_owner = true
+offset_left = 26.0
+offset_top = 724.0
+offset_right = 27026.0
+offset_bottom = 4324.0
+scale = Vector2(0.01, 0.01)
+theme_override_styles/background = SubResource("StyleBoxFlat_ropvi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_psvc5")
+value = 100.0
+show_percentage = false
+
+[node name="Gun" parent="." instance=ExtResource("3_u3hi1")]
+position = Vector2(1.19209e-07, -3.85626e-10)
+scale = Vector2(0.993786, 0.999975)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = -0.00264226
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_5afur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0144331, 0.00624657)
+rotation = 3.14159
+scale = Vector2(0.005, -0.006)
+shape = SubResource("RectangleShape2D_8bkge")
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+position = Vector2(0.0144331, 0.00624657)
+rotation = 3.14159
+scale = Vector2(0.005, -0.006)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_vaqim")
+debug_color = Color(0.972549, 0, 0.443137, 0.419608)

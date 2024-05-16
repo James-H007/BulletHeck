@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://crllsjclejh4u"]
+
+[ext_resource type="PackedScene" uid="uid://b65gn028gv3ws" path="res://walls.tscn" id="1_hyrxb"]
+[ext_resource type="PackedScene" uid="uid://dqwbfbvvmc5f6" path="res://player.tscn" id="1_ift8d"]
+[ext_resource type="Texture2D" uid="uid://c8sbog53xg7qe" path="res://gurk.jpg" id="2_2u8vx"]
+[ext_resource type="PackedScene" uid="uid://c2w7er0pdsy7" path="res://mob.tscn" id="2_o75cg"]
+[ext_resource type="Script" path="res://Health_Bar.gd" id="3_ib8dg"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Mob2" parent="." instance=ExtResource("2_o75cg")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 1200.0
+offset_bottom = 960.0
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+layer = -29
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.767167
+anchor_top = 0.000263158
+anchor_right = 0.966333
+anchor_bottom = 0.958158
+offset_left = -12.6
+offset_top = -0.25
+offset_right = 27.3999
+offset_bottom = 39.75
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CanvasLayer"]
+position = Vector2(1064, 354)
+scale = Vector2(0.485542, 0.485542)
+texture = ExtResource("2_2u8vx")
+
+[node name="Health_Bar" type="ProgressBar" parent="CanvasLayer/CanvasLayer"]
+offset_left = 962.0
+offset_top = 510.0
+offset_right = 1158.0
+offset_bottom = 537.0
+script = ExtResource("3_ib8dg")
+
+[node name="Walls" parent="." instance=ExtResource("1_hyrxb")]
+
+[node name="Player" parent="." instance=ExtResource("1_ift8d")]
+position = Vector2(392, 448)
+
+[node name="Mob" parent="." instance=ExtResource("2_o75cg")]
+position = Vector2(368, 88)
+
+[node name="Mob3" parent="." instance=ExtResource("2_o75cg")]
+position = Vector2(584, 137)
