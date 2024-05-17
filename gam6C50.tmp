@@ -28,3 +28,4 @@ position = Vector2(428, 904)
 
 [node name="Boss" parent="." instance=ExtResource("4_r0dc3")]
 position = Vector2(471, 187)
+maxHealth = 1000

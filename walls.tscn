@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b65gn028gv3ws"]
+[gd_scene load_steps=6 format=3 uid="uid://b65gn028gv3ws"]
+
+[ext_resource type="Texture2D" uid="uid://btbmqaqqriknh" path="res://background/bgprototype1.png" id="1_1vtvu"]
+[ext_resource type="Texture2D" uid="uid://do1dj7epcxs6i" path="res://background/curtaincherub.png" id="2_o1x14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ia8u"]
 size = Vector2(772, 11)
@@ -36,7 +39,7 @@ shape = SubResource("RectangleShape2D_rt17o")
 position = Vector2(771, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(0.75, 415.75)
+position = Vector2(-95, 415.75)
 shape = SubResource("RectangleShape2D_vkoek")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -47,8 +50,20 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -464.0
-offset_right = -79.0
+offset_right = -126.0
 offset_bottom = 365.0
 grow_horizontal = 2
 scale = Vector2(2.00499, 2.60072)
 color = Color(0.477786, 0.477661, 0.533943, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 136.0
+offset_right = 2136.0
+offset_bottom = 2824.0
+scale = Vector2(0.338201, 0.338201)
+texture = ExtResource("1_1vtvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(468, 491.057)
+scale = Vector2(0.334749, 0.328571)
+texture = ExtResource("2_o1x14")

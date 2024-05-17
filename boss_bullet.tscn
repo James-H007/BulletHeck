@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfnsoe8pf10gg"]
+
+[ext_resource type="Script" path="res://boss_bullet.gd" id="1_twnrd"]
+[ext_resource type="Texture2D" uid="uid://l3uqiyef5jx5" path="res://Boss/note3.png" id="2_yfvby"]
+
+[node name="EnemyBullet" type="Area2D"]
+top_level = true
+position = Vector2(7.15256e-07, 3.8147e-06)
+rotation = 0.0103767
+scale = Vector2(0.35452, 0.346416)
+collision_layer = 0
+script = ExtResource("1_twnrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yfvby")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-80.8786, 86.0437, -80.6936, 104.296, -70.29, 104.185, -70.182, 114.832, -40.4576, 114.516, -39.8147, 104.622, -30.8974, 104.527, -30.9976, 94.6409, -20.594, 94.5304, -19.5831, -25.6517, -9.92264, -25.7543, -10.0152, -34.8802, -0.354722, -34.9828, -0.46268, -45.6298, 19.6013, -45.8429, 20.2519, -54.9767, 29.9047, -55.8398, 30.5552, -64.9736, 59.5366, -65.2814, 59.9039, 44.2379, 39.8476, 45.2115, 39.9479, 55.098, 29.5366, 54.448, 30.3876, 65.087, 19.9841, 65.1975, 20.1846, 84.9704, 29.845, 84.8678, 29.9453, 94.7543, 70.081, 95.0886, 69.9808, 85.2021, 79.6412, 85.0996, 79.8425, -114.935, 39.7067, -115.269, 39.8147, -104.622, 20.4938, -104.417, 20.594, -94.5304, -0.213093, -94.3094, -0.112846, -84.423, -20.1846, -84.9704, -20.0843, -75.084, -29.7448, -74.9814, -40.1483, -74.8709, -40.2157, 65.0762, -59.5366, 65.2814, -59.4363, 75.1679, -70.583, 75.2862, -70.4828, 85.1727)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

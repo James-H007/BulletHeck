@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1qpr148u6ecu"]
+
+[ext_resource type="Script" path="res://enemy_bullet.gd" id="1_ammw5"]
+[ext_resource type="Texture2D" uid="uid://c5ed8k7r06tkp" path="res://Boss/nerddog.jpg" id="2_xl37t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkejb"]
+size = Vector2(5.31333, 5.33118)
+
+[node name="EnemyBullet" type="Area2D"]
+top_level = true
+position = Vector2(183, 200)
+rotation = 2.75612
+scale = Vector2(0.815037, 0.781723)
+collision_layer = 0
+script = ExtResource("1_ammw5")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(0.675587, 1.66633)
+scale = Vector2(0.0181189, 0.0181189)
+texture = ExtResource("2_xl37t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.810158, 1.14835)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_gkejb")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

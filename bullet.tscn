@@ -12,7 +12,7 @@ position = Vector2(183, 200)
 rotation = 2.75612
 scale = Vector2(0.815037, 0.781723)
 collision_layer = 0
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_a011l")
 
 [node name="Projectile" type="Sprite2D" parent="."]

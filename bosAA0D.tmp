@@ -1,17 +1,17 @@
 [gd_scene load_steps=12 format=3 uid="uid://csgkc3ffic2s"]
 
 [ext_resource type="Script" path="res://boss.gd" id="1_b5sy1"]
-[ext_resource type="Texture2D" uid="uid://csk78855wnw0o" path="res://Boss/crowprototypepixel.png" id="2_es1lk"]
+[ext_resource type="Texture2D" uid="uid://cwbnnl2eg6ou3" path="res://Boss/boss.png" id="2_enkml"]
 [ext_resource type="Script" path="res://FiniteStateMachine.gd" id="3_kr7ml"]
 [ext_resource type="Script" path="res://Idle.gd" id="4_2xcld"]
 [ext_resource type="Script" path="res://HomingMissile.gd" id="5_em0x8"]
-[ext_resource type="PackedScene" uid="uid://dfnsoe8pf10gg" path="res://boss_bullet.tscn" id="5_p11uh"]
+[ext_resource type="PackedScene" uid="uid://d1qpr148u6ecu" path="res://enemy_bullet.tscn" id="6_cbxuq"]
 [ext_resource type="Script" path="res://Summon.gd" id="7_8ufb1"]
 [ext_resource type="PackedScene" uid="uid://cxyq2dqcc4uka" path="res://turret.tscn" id="8_432ql"]
 [ext_resource type="PackedScene" uid="uid://vg3r6e38hqj5" path="res://turret2.tscn" id="9_3euor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yl4h"]
-size = Vector2(220, 240.5)
+size = Vector2(212, 232.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fyyaw"]
 radius = 450.0
@@ -27,15 +27,13 @@ unique_name_in_owner = true
 [node name="BossPoint2" type="Marker2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, -40)
-scale = Vector2(0.281488, 0.281488)
-texture = ExtResource("2_es1lk")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 7.75)
+position = Vector2(2, 3.75)
 shape = SubResource("RectangleShape2D_3yl4h")
-debug_color = Color(0.855138, 0.229418, 0.715432, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4.5)
+texture = ExtResource("2_enkml")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -98,7 +96,7 @@ script = ExtResource("3_kr7ml")
 
 [node name="HomingMissile" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("5_em0x8")
-bullet_node = ExtResource("5_p11uh")
+bullet_node = ExtResource("6_cbxuq")
 
 [node name="HomingTimer" type="Timer" parent="FiniteStateMachine/HomingMissile"]
 unique_name_in_owner = true

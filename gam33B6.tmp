@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b65gn028gv3ws" path="res://walls.tscn" id="1_hyrxb"]
 [ext_resource type="PackedScene" uid="uid://dqwbfbvvmc5f6" path="res://player.tscn" id="1_ift8d"]
-[ext_resource type="Texture2D" uid="uid://btbmqaqqriknh" path="res://background/bgprototype1.png" id="1_mre0n"]
+[ext_resource type="PackedScene" uid="uid://c2w7er0pdsy7" path="res://mob.tscn" id="2_o75cg"]
 [ext_resource type="PackedScene" uid="uid://csgkc3ffic2s" path="res://boss.tscn" id="4_r0dc3"]
 
 [node name="Game" type="Node2D"]
@@ -10,13 +10,8 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
-offset_right = 2000.0
-offset_bottom = 2824.0
-texture = ExtResource("1_mre0n")
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_right = 1200.0
 offset_bottom = 960.0
 color = Color(0.235294, 0.235294, 0.235294, 1)
@@ -24,7 +19,13 @@ color = Color(0.235294, 0.235294, 0.235294, 1)
 [node name="Walls" parent="." instance=ExtResource("1_hyrxb")]
 
 [node name="Player" parent="." instance=ExtResource("1_ift8d")]
-position = Vector2(428, 904)
+position = Vector2(392, 448)
+
+[node name="Mob" parent="." instance=ExtResource("2_o75cg")]
+position = Vector2(698, 799)
+
+[node name="Mob3" parent="." instance=ExtResource("2_o75cg")]
+position = Vector2(278, 799)
 
 [node name="Boss" parent="." instance=ExtResource("4_r0dc3")]
-position = Vector2(471, 187)
+position = Vector2(490, 145)

@@ -28,6 +28,8 @@ func _physics_process(delta):
 	const DAMAGE_RATE = 5.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
+		#for mob in overlapping_mobs:
+			#print(mob.name)
 		currentHealth -= DAMAGE_RATE * overlapping_mobs.size() * delta
 		%Health_bar.value = currentHealth
 		if currentHealth <= 0.0:
@@ -40,5 +42,11 @@ func clamp_to_viewport():
 	# Clamp the position
 	position.x = clamp(position.x, 0, viewport_size.x)
 	position.y = clamp(position.y, 0, viewport_size.y)
+	
+func take_damage():
+	currentHealth -= 5.0
+	%Health_bar.value = currentHealth
+	if currentHealth <= 0.0:
+		health_depleted.emit()
 	
 
