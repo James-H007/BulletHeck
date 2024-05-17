@@ -116,7 +116,7 @@ shape = SubResource("CapsuleShape2D_rs7v8")
 debug_color = Color(0.221981, 0.613832, 0.504583, 0.42)
 
 [node name="BulletTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

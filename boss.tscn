@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csgkc3ffic2s"]
+[gd_scene load_steps=14 format=3 uid="uid://csgkc3ffic2s"]
 
 [ext_resource type="Script" path="res://boss.gd" id="1_b5sy1"]
 [ext_resource type="Texture2D" uid="uid://csk78855wnw0o" path="res://Boss/crowprototypepixel.png" id="2_es1lk"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Summon.gd" id="7_8ufb1"]
 [ext_resource type="PackedScene" uid="uid://cxyq2dqcc4uka" path="res://turret.tscn" id="8_432ql"]
 [ext_resource type="PackedScene" uid="uid://vg3r6e38hqj5" path="res://turret2.tscn" id="9_3euor"]
+[ext_resource type="Script" path="res://Rotator.gd" id="10_srfnn"]
+[ext_resource type="PackedScene" uid="uid://b52qbdiqe1lmx" path="res://boss_bullet2.tscn" id="11_5x46f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yl4h"]
 size = Vector2(220, 240.5)
@@ -118,8 +120,19 @@ unique_name_in_owner = true
 wait_time = 1.5
 one_shot = true
 
-[node name="Node2D" type="Node2D" parent="FiniteStateMachine"]
+[node name="RotateAttack" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_srfnn")
+bullet_node = ExtResource("11_5x46f")
+
+[node name="StopTimer" type="Timer" parent="FiniteStateMachine/RotateAttack"]
+wait_time = 3.0
+
+[node name="ShootTimer" type="Timer" parent="FiniteStateMachine/RotateAttack"]
+
+[node name="Rotator" type="Node2D" parent="FiniteStateMachine/RotateAttack"]
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="FiniteStateMachine/HomingMissile/HomingTimer" to="FiniteStateMachine/HomingMissile" method="_on_timer_timeout"]
 [connection signal="timeout" from="FiniteStateMachine/Summon/SummonTimer" to="FiniteStateMachine/Summon" method="_on_summon_timer_timeout"]
+[connection signal="timeout" from="FiniteStateMachine/RotateAttack/StopTimer" to="FiniteStateMachine/RotateAttack" method="_on_stop_timer_timeout"]
+[connection signal="timeout" from="FiniteStateMachine/RotateAttack/ShootTimer" to="FiniteStateMachine/RotateAttack" method="_on_shoot_timer_timeout"]

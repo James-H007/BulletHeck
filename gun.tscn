@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv3nwus5cs7sf"]
 
 [ext_resource type="Script" path="res://gun.gd" id="1_55vjh"]
-[ext_resource type="Texture2D" uid="uid://cged3twtuny5p" path="res://gun.png" id="1_fuwrm"]
+[ext_resource type="Texture2D" uid="uid://fufiu5plk4t1" path="res://Boss/arrow.png" id="2_yrba6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xyqjk"]
 radius = 5.99999
@@ -23,7 +23,7 @@ position = Vector2(-0.99999, 0.00454973)
 position = Vector2(1.99998, -0.00909946)
 rotation = 1.54061
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_fuwrm")
+texture = ExtResource("2_yrba6")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Arrow"]
 unique_name_in_owner = true

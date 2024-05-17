@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var bullet_node: PackedScene
 @onready var player = get_node("/root/Game/Player")
 
-var health = 6
+var health = 5
 
 func shoot():
 	var bullet = bullet_node.instantiate()

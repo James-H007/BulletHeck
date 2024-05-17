@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b52qbdiqe1lmx"]
+
+[ext_resource type="Script" path="res://boss_bullet2.gd" id="1_1y513"]
+[ext_resource type="Texture2D" uid="uid://dcgto4larlx6a" path="res://Boss/note2.png" id="2_ajaxl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ocpxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ajaxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ajaxl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyBullet2" type="Area2D"]
+top_level = true
+position = Vector2(7.15256e-07, 3.8147e-06)
+rotation = 0.0103767
+scale = Vector2(1.17288, 1.14607)
+collision_layer = 0
+collision_mask = 33
+script = ExtResource("1_1y513")
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Projectile" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.0127301, 1.26997)
+scale = Vector2(0.115044, 0.115044)
+sprite_frames = SubResource("SpriteFrames_ocpxw")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.626097, 1.26338)
+scale = Vector2(5, 5)
+polygon = PackedVector2Array(-1.57948, 1.5411, -1.33414, 1.53846, -1.33668, 1.28447, -1.09133, 1.28183, -1.09388, 1.02784, -0.603185, 1.02257, -0.357837, 1.01993, -0.11249, 1.0173, -0.130312, -0.760665, -0.140495, -1.77664, -0.145587, -2.28463, 0.0997604, -2.28727, 0.102306, -2.03327, 0.347654, -2.03591, 0.352746, -1.52792, 0.598093, -1.53056, 0.600639, -1.27656, 0.845987, -1.2792, 0.848533, -1.0252, 1.09388, -1.02784, 1.09897, -0.51985, 1.34432, -0.522485, 1.3545, 0.493492, 1.10916, 0.496128, 1.11425, 1.00412, 0.623553, 1.00939, 0.866354, 0.752758, 0.858716, -0.00922503, 0.853625, -0.517214, 0.608277, -0.514578, 0.605731, -0.768573, 0.360384, -0.765937, 0.357838, -1.01993, 0.115036, -0.763301, 0.137949, 1.52265, -0.104852, 1.77928, -0.347654, 2.03591, -0.590455, 2.29254, -1.3265, 2.30045, -1.32904, 2.04645, -1.57439, 2.04909)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

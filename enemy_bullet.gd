@@ -13,7 +13,7 @@ func _physics_process(delta):
 	
 
 	#acceleration = (player.position - position).normalized() * 700
-	const SPEED = 300
+	const SPEED = 100
 	const RANGE = 600
  
 	velocity += acceleration * delta
@@ -22,7 +22,7 @@ func _physics_process(delta):
  	
 	travelled_distance += SPEED * delta
 	
-	if travelled_distance > 900:
+	if travelled_distance > 500:
 		queue_free()
  
 	position += direction * SPEED * delta

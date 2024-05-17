@@ -7,7 +7,7 @@
 top_level = true
 position = Vector2(7.15256e-07, 3.8147e-06)
 rotation = 0.0103767
-scale = Vector2(0.35452, 0.346416)
+scale = Vector2(0.25397, 0.248165)
 collision_layer = 0
 script = ExtResource("1_twnrd")
 

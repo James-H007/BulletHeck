@@ -26,8 +26,8 @@ func summon():
 	#print("Spawn Position", SpawnPosition)
 	var turret = turret_node.instantiate()
 	var turret2 = turret_node2.instantiate()
-	turret.global_position = SpawnPosition + Vector2(rng.randi_range(-350,-650),rng.randi_range(0,500))
-	turret2.global_position = SpawnPosition2 + Vector2(rng.randi_range(-350,-650),rng.randi_range(0,500))
+	turret.global_position = SpawnPosition + Vector2(rng.randi_range(-350,-650),rng.randi_range(180,250))
+	turret2.global_position = SpawnPosition2 + Vector2(rng.randi_range(-350,-650),rng.randi_range(250,500))
 	print("Turret Position", turret.position)
 	%BossPoint2.add_child(turret)
 	%BossPoint2.add_child(turret2)
@@ -42,7 +42,7 @@ func transition():
 	if can_transition:
 		can_transition = false
 		print("I transitioned")
-		get_parent().change_state("HomingMissile")
+		get_parent().change_state("RotateAttack")
 	else:
 		pass
 
