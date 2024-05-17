@@ -222,7 +222,7 @@ position = Vector2(-9.59622, -1.92552)
 scale = Vector2(0.047337, 0.0457273)
 sprite_frames = SubResource("SpriteFrames_4wdky")
 animation = &"trumpet"
-frame_progress = 0.630224
+frame_progress = 0.503527
 
 [node name="Origin" type="Marker2D" parent="."]
 scale = Vector2(0.0661031, 0.0661031)

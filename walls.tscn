@@ -64,6 +64,6 @@ scale = Vector2(0.338201, 0.338201)
 texture = ExtResource("1_1vtvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(468, 491.057)
+position = Vector2(470, 475)
 scale = Vector2(0.334749, 0.328571)
 texture = ExtResource("2_o1x14")

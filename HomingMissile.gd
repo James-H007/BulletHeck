@@ -20,7 +20,10 @@ func shoot():
 	bullet.position = owner.position
 	%BossPoint.add_child(bullet)
 
+
 func _on_timer_timeout():
+	shoot()
+	shoot()
 	shoot()
 	counter += 1
 	if counter > 3:
