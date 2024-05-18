@@ -24,8 +24,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Walls" parent="." instance=ExtResource("1_hyrxb")]
 
+[node name="Player" parent="." instance=ExtResource("1_ift8d")]
+position = Vector2(428, 904)
+scale = Vector2(62.2799, 47.5366)
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = -1
+layer = 0
 
 [node name="Bg_Blue" type="TextureRect" parent="CanvasLayer2"]
 offset_left = 639.0
@@ -72,10 +76,6 @@ offset_right = 2564.0
 offset_bottom = 804.0
 scale = Vector2(0.188978, 0.188978)
 texture = ExtResource("8_pcpx0")
-
-[node name="Player" parent="." instance=ExtResource("1_ift8d")]
-position = Vector2(428, 904)
-scale = Vector2(62.2799, 47.5366)
 
 [node name="Boss" parent="." instance=ExtResource("4_r0dc3")]
 position = Vector2(376, 314)

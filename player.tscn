@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cv3nwus5cs7sf" path="res://gun.tscn" id="3_u3hi1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_673c8"]
-bg_color = Color(0.817521, 0.817521, 0.817521, 1)
+bg_color = Color(0.486423, 0.115253, 0.310194, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alxf7"]
-bg_color = Color(0.533943, 0.259949, 0.343412, 1)
+bg_color = Color(0.81159, 0.724476, 0.868834, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bkge"]
 size = Vector2(75.0527, 56.2294)
@@ -40,11 +40,11 @@ grow_vertical = 2
 
 [node name="Health_bar" type="ProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 627.0
-offset_top = 723.0
-offset_right = 846.0
-offset_bottom = 737.0
-rotation = 1.57079
+offset_left = 614.0
+offset_top = 958.0
+offset_right = 833.0
+offset_bottom = 972.0
+rotation = -1.57079
 theme_override_styles/background = SubResource("StyleBoxFlat_673c8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_alxf7")
 value = 100.0
