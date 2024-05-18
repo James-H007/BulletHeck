@@ -22,7 +22,7 @@ func enter():
 	if %BossPoint2.get_child_count() >= 2 and hp > 400:
 		can_transition = true
 		transition()
-	elif %BossPoint.get_child_count() >= 4 and hp <= 400:
+	elif %BossPoint.get_child_count() >= 3 and hp <= 400:
 		can_transition = true
 		transition()
 	else:
@@ -34,8 +34,10 @@ func summon():
 	#print("Spawn Position", SpawnPosition)
 	var turret = turret_node.instantiate()
 	var turret2 = turret_node2.instantiate()
-	turret.global_position = SpawnPosition + Vector2(rng.randi_range(-350,-650),rng.randi_range(180,250))
-	turret2.global_position = SpawnPosition2 + Vector2(rng.randi_range(-350,-650),rng.randi_range(250,300))
+	turret.global_position = SpawnPosition + Vector2(rng.randi_range(-300,-450),rng.randi_range(0,50))
+	turret2.global_position = SpawnPosition2 + Vector2(rng.randi_range(-300,-450),rng.randi_range(50,100))
+	#turret.global_position = SpawnPosition + Vector2(-300, 0)
+	#turret2.global_position = SpawnPosition2 + Vector2(-450, 100)
 	print("Turret Position", turret.position)
 	%BossPoint2.add_child(turret)
 	%BossPoint2.add_child(turret2)

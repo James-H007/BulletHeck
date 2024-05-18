@@ -4,6 +4,7 @@ signal health_depleted
 
 @export var maxHealth = 100
 @onready var currentHealth = maxHealth
+@onready var is_invincible = false
 
 
 
@@ -44,7 +45,16 @@ func clamp_to_viewport():
 	position.y = clamp(position.y, 0, viewport_size.y)
 	
 func take_damage():
-	currentHealth -= 5.0
+
+	
+	if !is_invincible:
+		currentHealth -= 5.0
+		is_invincible = true
+		$Sprite2D.self_modulate.a = 0.5
+		await get_tree().create_timer(.7).timeout
+		$Sprite2D.self_modulate.a = 1
+		is_invincible = false
+		
 	%Health_bar.value = currentHealth
 	if currentHealth <= 0.0:
 		health_depleted.emit()

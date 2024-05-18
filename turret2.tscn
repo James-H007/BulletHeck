@@ -1,9 +1,74 @@
-[gd_scene load_steps=17 format=3 uid="uid://vg3r6e38hqj5"]
+[gd_scene load_steps=34 format=3 uid="uid://vg3r6e38hqj5"]
 
 [ext_resource type="Script" path="res://turret2.gd" id="1_gg2ty"]
 [ext_resource type="PackedScene" uid="uid://d1qpr148u6ecu" path="res://enemy_bullet.tscn" id="2_eg8kb"]
 [ext_resource type="Texture2D" uid="uid://b0k3guwwk81dq" path="res://Boss/sheet_littleguyhorn.png" id="3_e5tcm"]
 [ext_resource type="Texture2D" uid="uid://sp6dctqwf5ib" path="res://Boss/sheet_littleguy.png" id="4_ey78m"]
+[ext_resource type="Texture2D" uid="uid://ch5hc5gwhis88" path="res://Particles/Holy VFX 023.png" id="6_tdu4a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgsix"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(0, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i75c3"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(144, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upkca"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(288, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdm1w"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(432, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5161a"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(576, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvmqy"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(720, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeafe"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(864, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slalb"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1008, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g24ci"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1152, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywhmj"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1296, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1htuh"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1440, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2hs2"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1584, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84c8f"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1728, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amjx1"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(1872, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwcoc"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(2016, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krdml"]
+atlas = ExtResource("6_tdu4a")
+region = Rect2(2160, 0, 144, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqtwr"]
 atlas = ExtResource("3_e5tcm")
@@ -47,6 +112,59 @@ region = Rect2(0, 1512, 431, 378)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4wdky"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgsix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i75c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upkca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdm1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5161a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvmqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeafe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slalb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g24ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywhmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1htuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2hs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84c8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amjx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwcoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krdml")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 13.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eqtwr")
@@ -103,7 +221,7 @@ bullet_node = ExtResource("2_eg8kb")
 position = Vector2(3.29013, 0.275074)
 scale = Vector2(0.0661031, 0.0661031)
 sprite_frames = SubResource("SpriteFrames_4wdky")
-animation = &"violin"
+animation = &"spawn"
 offset = Vector2(-50, 0)
 
 [node name="Origin" type="Marker2D" parent="."]
@@ -119,4 +237,8 @@ debug_color = Color(0.221981, 0.613832, 0.504583, 0.42)
 wait_time = 4.0
 autostart = true
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

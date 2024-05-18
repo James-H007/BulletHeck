@@ -1,9 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://crllsjclejh4u"]
+[gd_scene load_steps=11 format=3 uid="uid://crllsjclejh4u"]
 
 [ext_resource type="PackedScene" uid="uid://b65gn028gv3ws" path="res://walls.tscn" id="1_hyrxb"]
 [ext_resource type="PackedScene" uid="uid://dqwbfbvvmc5f6" path="res://player.tscn" id="1_ift8d"]
-[ext_resource type="Script" path="res://game.gd" id="1_lymcx"]
-[ext_resource type="Texture2D" uid="uid://dsbqx3bf5nbph" path="res://background/loop-Sheet.png" id="1_s8xf6"]
 [ext_resource type="Texture2D" uid="uid://c4ll8eg1sfm8l" path="res://UI/Portrait_BG_Blue.png" id="4_0vq82"]
 [ext_resource type="Texture2D" uid="uid://c6r7nf3vq47kn" path="res://UI/BG_Outer.png" id="4_jh7e4"]
 [ext_resource type="PackedScene" uid="uid://csgkc3ffic2s" path="res://boss.tscn" id="4_r0dc3"]
@@ -13,65 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cwkak27jd0rhx" path="res://UI/gradient.png" id="8_pcpx0"]
 [ext_resource type="Texture2D" uid="uid://bj10exmrg14s8" path="res://UI/Boss_Title.png" id="9_100ve"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhk8k"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(0, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwggk"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(350, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqypr"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(700, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vlfj2"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(1050, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_knjmo"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(1400, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5n4ps"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(1750, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nra2s"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(2100, 0, 350, 381)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uq7xt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhk8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uwggk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqypr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlfj2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_knjmo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5n4ps")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nra2s")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Game" type="Node2D"]
-script = ExtResource("1_lymcx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
@@ -84,17 +24,10 @@ offset_bottom = 960.0
 color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Barrier" type="AnimatedSprite2D" parent="."]
-position = Vector2(368, 312)
-scale = Vector2(1.37286, 1.39281)
-sprite_frames = SubResource("SpriteFrames_uq7xt")
-frame = 2
-frame_progress = 0.342117
-
 [node name="Walls" parent="." instance=ExtResource("1_hyrxb")]
 
 [node name="Player" parent="." instance=ExtResource("1_ift8d")]
-position = Vector2(352, 896)
+position = Vector2(428, 904)
 scale = Vector2(62.2799, 47.5366)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
