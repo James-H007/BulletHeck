@@ -1,30 +1,86 @@
-[gd_scene load_steps=5 format=3 uid="uid://crllsjclejh4u"]
+[gd_scene load_steps=11 format=3 uid="uid://crllsjclejh4u"]
 
 [ext_resource type="PackedScene" uid="uid://b65gn028gv3ws" path="res://walls.tscn" id="1_hyrxb"]
 [ext_resource type="PackedScene" uid="uid://dqwbfbvvmc5f6" path="res://player.tscn" id="1_ift8d"]
-[ext_resource type="Texture2D" uid="uid://btbmqaqqriknh" path="res://background/bgprototype1.png" id="1_mre0n"]
+[ext_resource type="Texture2D" uid="uid://c4ll8eg1sfm8l" path="res://UI/Portrait_BG_Blue.png" id="4_0vq82"]
+[ext_resource type="Texture2D" uid="uid://c6r7nf3vq47kn" path="res://UI/BG_Outer.png" id="4_jh7e4"]
 [ext_resource type="PackedScene" uid="uid://csgkc3ffic2s" path="res://boss.tscn" id="4_r0dc3"]
+[ext_resource type="Texture2D" uid="uid://cow4wve66pve6" path="res://UI/Portrait_BG_Redd.png" id="5_bupof"]
+[ext_resource type="Texture2D" uid="uid://0vuaepw5v654" path="res://UI/Portrait_Blue.png" id="6_2vlr1"]
+[ext_resource type="Texture2D" uid="uid://c1pj3dj7ayx2w" path="res://UI/Portrait_Red.png" id="7_ijuuy"]
+[ext_resource type="Texture2D" uid="uid://cwkak27jd0rhx" path="res://UI/gradient.png" id="8_pcpx0"]
+[ext_resource type="Texture2D" uid="uid://bj10exmrg14s8" path="res://UI/Boss_Title.png" id="9_100ve"]
 
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
-offset_right = 2000.0
-offset_bottom = 2824.0
-texture = ExtResource("1_mre0n")
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1200.0
 offset_bottom = 960.0
 color = Color(0.235294, 0.235294, 0.235294, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Walls" parent="." instance=ExtResource("1_hyrxb")]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Bg_Blue" type="TextureRect" parent="CanvasLayer2"]
+offset_left = 639.0
+offset_top = 724.0
+offset_right = 938.0
+offset_bottom = 1161.0
+scale = Vector2(0.583468, 0.583468)
+texture = ExtResource("4_0vq82")
+metadata/_edit_lock_ = true
+
+[node name="Bg_Red" type="TextureRect" parent="CanvasLayer2"]
+offset_left = 624.0
+offset_top = 331.0
+offset_right = 923.0
+offset_bottom = 768.0
+scale = Vector2(0.600317, 0.600317)
+texture = ExtResource("5_bupof")
+metadata/_edit_lock_ = true
+
+[node name="MC" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(731.51, 843.495)
+scale = Vector2(0.13985, 0.13985)
+texture = ExtResource("6_2vlr1")
+
+[node name="MC2" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(724.694, 491.657)
+scale = Vector2(0.125008, 0.125008)
+texture = ExtResource("7_ijuuy")
+metadata/_edit_lock_ = true
+
+[node name="Overlay" type="TextureRect" parent="CanvasLayer2"]
+offset_left = 107.0
+offset_top = 1.0
+offset_right = 1142.0
+offset_bottom = 1455.0
+scale = Vector2(0.69265, 0.68934)
+texture = ExtResource("4_jh7e4")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 135.0
+offset_top = 37.0
+offset_right = 2564.0
+offset_bottom = 804.0
+scale = Vector2(0.188978, 0.188978)
+texture = ExtResource("8_pcpx0")
+
 [node name="Player" parent="." instance=ExtResource("1_ift8d")]
 position = Vector2(428, 904)
+scale = Vector2(62.2799, 47.5366)
 
 [node name="Boss" parent="." instance=ExtResource("4_r0dc3")]
-position = Vector2(488, 240)
+position = Vector2(376, 314)
+
+[node name="BossTitle" type="Sprite2D" parent="."]
+position = Vector2(367, 69)
+scale = Vector2(0.988739, 1)
+texture = ExtResource("9_100ve")

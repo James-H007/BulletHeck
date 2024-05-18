@@ -4,19 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://djowo00wmbwvc" path="res://body.png" id="3_5afur"]
 [ext_resource type="PackedScene" uid="uid://cv3nwus5cs7sf" path="res://gun.tscn" id="3_u3hi1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ropvi"]
-bg_color = Color(0.568627, 0.611765, 0.623529, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_673c8"]
+bg_color = Color(0.817521, 0.817521, 0.817521, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psvc5"]
-bg_color = Color(0, 0.721569, 0.305882, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alxf7"]
+bg_color = Color(0.533943, 0.259949, 0.343412, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bkge"]
 size = Vector2(75.0527, 56.2294)
@@ -26,48 +18,49 @@ radius = 37.5408
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(395, 732)
-scale = Vector2(72.1523, 55.5615)
+scale = Vector2(62.1238, 47.839)
 script = ExtResource("1_4nxw4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 6
+visible = false
+anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.22632
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.22632
 offset_left = -351.0
 offset_top = -475.0
-offset_right = -2.0
-offset_bottom = 475.0
+offset_right = -316.0
+offset_bottom = -215.0
 grow_horizontal = 0
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="Health_bar" type="ProgressBar" parent="CanvasLayer/ColorRect"]
+[node name="Health_bar" type="ProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 26.0
-offset_top = 724.0
-offset_right = 27026.0
-offset_bottom = 4324.0
-scale = Vector2(0.01, 0.01)
-theme_override_styles/background = SubResource("StyleBoxFlat_ropvi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_psvc5")
+offset_left = 627.0
+offset_top = 723.0
+offset_right = 846.0
+offset_bottom = 737.0
+rotation = 1.57079
+theme_override_styles/background = SubResource("StyleBoxFlat_673c8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_alxf7")
 value = 100.0
 show_percentage = false
-metadata/_edit_use_anchors_ = true
 
 [node name="Gun" parent="." instance=ExtResource("3_u3hi1")]
 position = Vector2(1.19209e-07, -3.85626e-10)
 scale = Vector2(0.993786, 0.999975)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = -0.00264226
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("3_5afur")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 33
@@ -75,6 +68,7 @@ position = Vector2(0.0144331, 0.00624657)
 rotation = 3.14159
 scale = Vector2(0.005, -0.006)
 shape = SubResource("RectangleShape2D_8bkge")
+metadata/_edit_lock_ = true
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -85,9 +79,11 @@ rotation = 3.14159
 scale = Vector2(0.005, -0.006)
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CircleShape2D_vaqim")
 debug_color = Color(0.972549, 0, 0.443137, 0.419608)
+metadata/_edit_lock_ = true

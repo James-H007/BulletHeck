@@ -8,12 +8,13 @@ var acceleration: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 var direction = Vector2.DOWN
 var travelled_distance = 0
+var speed = 150
  
 func _physics_process(delta):
 	
 	var rng = RandomNumberGenerator.new()
 	#acceleration = (player.position - position).normalized() * 700
-	const SPEED = 220
+	
 	const RANGE = 600
  
 	velocity += acceleration * delta
@@ -21,12 +22,12 @@ func _physics_process(delta):
 	direction = Vector2(rng.randf_range(-5,5), 1)
 	#direction = Vector2.DOWN
  	
-	travelled_distance += SPEED * delta
+	travelled_distance += speed * delta
 	
 	if travelled_distance > 1500:
 		queue_free()
  
-	position += direction * SPEED * delta
+	position += direction * speed * delta
  
  
 func _on_body_entered(body):

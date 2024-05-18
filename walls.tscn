@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b65gn028gv3ws"]
+[gd_scene load_steps=7 format=3 uid="uid://b65gn028gv3ws"]
 
-[ext_resource type="Texture2D" uid="uid://btbmqaqqriknh" path="res://background/bgprototype1.png" id="1_1vtvu"]
+[ext_resource type="Texture2D" uid="uid://h7wigm1secih" path="res://Boss/stagegrid.png" id="1_mmmyj"]
+[ext_resource type="Texture2D" uid="uid://b3t31ulpan5sy" path="res://Boss/BG_Back.png" id="2_32ek1"]
 [ext_resource type="Texture2D" uid="uid://do1dj7epcxs6i" path="res://background/curtaincherub.png" id="2_o1x14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ia8u"]
 size = Vector2(772, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt17o"]
-size = Vector2(10, 955)
+size = Vector2(14, 956)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkoek"]
-size = Vector2(7.5, 951.5)
+size = Vector2(12, 963.5)
 
 [node name="Walls" type="Node2D"]
 position = Vector2(137, 59)
@@ -19,33 +20,35 @@ position = Vector2(137, 59)
 position = Vector2(0, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall"]
-position = Vector2(385, -4.5)
+position = Vector2(385, 28)
+scale = Vector2(1.02321, 1.05275)
 shape = SubResource("RectangleShape2D_4ia8u")
 
 [node name="SouthWall" type="StaticBody2D" parent="."]
 position = Vector2(0, 890)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWall"]
-position = Vector2(385, -4.5)
+position = Vector2(385, 20)
 shape = SubResource("RectangleShape2D_4ia8u")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(0, 418.5)
+position = Vector2(0, 442)
 shape = SubResource("RectangleShape2D_rt17o")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(771, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(-95, 415.75)
+position = Vector2(-314, 426.25)
 shape = SubResource("RectangleShape2D_vkoek")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -29
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -55,15 +58,30 @@ offset_bottom = 365.0
 grow_horizontal = 2
 scale = Vector2(2.00499, 2.60072)
 color = Color(0.477786, 0.477661, 0.533943, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 136.0
-offset_right = 2136.0
-offset_bottom = 2824.0
-scale = Vector2(0.338201, 0.338201)
-texture = ExtResource("1_1vtvu")
+offset_top = 59.0
+offset_right = 4960.0
+offset_bottom = 9615.0
+scale = Vector2(0.0952558, 0.0952558)
+texture = ExtResource("1_mmmyj")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.001
+anchor_bottom = 1.631
+offset_left = 135.0
+offset_top = 58.0
+offset_right = 4434.0
+offset_bottom = 6763.0
+scale = Vector2(0.106775, 0.106775)
+texture = ExtResource("2_32ek1")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(470, 475)
-scale = Vector2(0.334749, 0.328571)
+position = Vector2(365.125, 482.971)
+scale = Vector2(0.229874, 0.315844)
 texture = ExtResource("2_o1x14")

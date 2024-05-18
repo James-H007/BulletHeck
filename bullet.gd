@@ -6,7 +6,7 @@ var direction
 
 func _physics_process(delta):
 	#print("test")
-	const SPEED = 1000
+	const SPEED = 800
 	const RANGE = 1200
 	
 	direction = Vector2.RIGHT.rotated(rotation)

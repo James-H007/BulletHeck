@@ -13,7 +13,7 @@ func _physics_process(delta):
 	
 
 	#acceleration = (player.position - position).normalized() * 700
-	const SPEED = 100
+	const SPEED = 200
 	const RANGE = 600
  
 	velocity += acceleration * delta

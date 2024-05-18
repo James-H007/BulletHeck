@@ -28,7 +28,7 @@ func _physics_process(delta):
 			
 func take_damage():
 	#print("I'm taking damage")
-	currentHealth -= 5.0
+	currentHealth -= 4.0
 	$UI/ProgressBar.value = currentHealth
 	print($UI/ProgressBar.value)
 	if currentHealth <= 0.0:
