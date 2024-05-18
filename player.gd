@@ -5,6 +5,7 @@ signal health_depleted
 @export var maxHealth = 100
 @onready var currentHealth = maxHealth
 @onready var is_invincible = false
+@onready var health_kit = 3
 
 
 
@@ -20,6 +21,11 @@ func _process(delta):
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if Input.is_action_just_pressed("heal") and health_kit > 0 and currentHealth < 100:
+		health_kit -= 1
+		$CanvasLayer/HealthKit.text = "x" + str(health_kit) 
+		heal()
 	
 	velocity = direction * 300
 	
@@ -45,8 +51,6 @@ func clamp_to_viewport():
 	position.y = clamp(position.y, 0, viewport_size.y)
 	
 func take_damage():
-
-	
 	if !is_invincible:
 		currentHealth -= 5.0
 		is_invincible = true
@@ -59,4 +63,7 @@ func take_damage():
 	if currentHealth <= 0.0:
 		health_depleted.emit()
 	
-
+func heal():
+	if currentHealth > 0 and currentHealth < 100:
+		currentHealth += 5.0
+		%Health_bar.value = currentHealth

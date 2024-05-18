@@ -8,6 +8,7 @@ const whiten_duration = 0.15
 
 func _ready():
 	$AnimatedSprite2D.play("default")
+	$Barrier.visible = false
 	pass
 #
 #func summon_attack():
@@ -26,7 +27,16 @@ func _ready():
 		##if bullet:
 			##bullet.rotate_bullet()
 func _physics_process(delta):
-	pass
+	var tween = create_tween()
+	if  currentHealth < 800 and currentHealth >= 600:
+		$Barrier.visible = true
+		$Barrier.play("default")
+	elif currentHealth < 600 and currentHealth >= 400:
+		tween.tween_property($Barrier, "scale", Vector2(1,1), 2)
+	elif currentHealth < 400 and currentHealth >= 1:
+		tween.tween_property($Barrier, "scale", Vector2(1,1), 2)
+
+	
 			
 func take_damage():
 	#print("I'm taking damage")
@@ -40,4 +50,5 @@ func take_damage():
 	$UI/ProgressBar.value = currentHealth
 	print($UI/ProgressBar.value)
 	if currentHealth <= 0.0:
+		#$Boss.pause()
 		queue_free()

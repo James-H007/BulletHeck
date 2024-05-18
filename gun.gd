@@ -10,8 +10,10 @@ func _physics_process(delta):
 	mouse_position = get_global_mouse_position()
 	look_at(mouse_position)
 	
-	if Input.is_action_pressed("shoot") and can_shoot:
+	if can_shoot:
 		shoot()
+	#if Input.is_action_pressed("shoot") and can_shoot:
+		#shoot()
 
 func shoot():
 	

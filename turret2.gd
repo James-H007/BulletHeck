@@ -34,6 +34,8 @@ func take_damage():
 	health -= 1
 	
 	if health <= 0:
+		$AnimatedSprite2D.self_modulate.a = 0.5
+		await get_tree().create_timer(.3).timeout
 		queue_free()
 
 

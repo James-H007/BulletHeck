@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://crllsjclejh4u"]
+[gd_scene load_steps=15 format=3 uid="uid://crllsjclejh4u"]
 
 [ext_resource type="PackedScene" uid="uid://b65gn028gv3ws" path="res://walls.tscn" id="1_hyrxb"]
 [ext_resource type="PackedScene" uid="uid://dqwbfbvvmc5f6" path="res://player.tscn" id="1_ift8d"]
 [ext_resource type="Script" path="res://game.gd" id="1_lymcx"]
-[ext_resource type="Texture2D" uid="uid://dsbqx3bf5nbph" path="res://background/loop-Sheet.png" id="1_s8xf6"]
 [ext_resource type="Texture2D" uid="uid://c4ll8eg1sfm8l" path="res://UI/Portrait_BG_Blue.png" id="4_0vq82"]
 [ext_resource type="Texture2D" uid="uid://c6r7nf3vq47kn" path="res://UI/BG_Outer.png" id="4_jh7e4"]
 [ext_resource type="PackedScene" uid="uid://csgkc3ffic2s" path="res://boss.tscn" id="4_r0dc3"]
@@ -12,63 +11,24 @@
 [ext_resource type="Texture2D" uid="uid://c1pj3dj7ayx2w" path="res://UI/Portrait_Red.png" id="7_ijuuy"]
 [ext_resource type="Texture2D" uid="uid://cwkak27jd0rhx" path="res://UI/gradient.png" id="8_pcpx0"]
 [ext_resource type="Texture2D" uid="uid://bj10exmrg14s8" path="res://UI/Boss_Title.png" id="9_100ve"]
+[ext_resource type="Shader" path="res://vhs.gdshader" id="9_p17u5"]
+[ext_resource type="PackedScene" uid="uid://dh2a5gt1eovx" path="res://pause.tscn" id="11_lchvg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhk8k"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(0, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwggk"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(350, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqypr"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(700, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vlfj2"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(1050, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_knjmo"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(1400, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5n4ps"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(1750, 0, 350, 381)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nra2s"]
-atlas = ExtResource("1_s8xf6")
-region = Rect2(2100, 0, 350, 381)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uq7xt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhk8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uwggk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqypr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlfj2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_knjmo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5n4ps")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nra2s")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5y0ed"]
+shader = ExtResource("9_p17u5")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 2.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.0
+shader_parameter/tape_crease_smear = 0.2
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lymcx")
@@ -83,13 +43,6 @@ offset_right = 1200.0
 offset_bottom = 960.0
 color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="Barrier" type="AnimatedSprite2D" parent="."]
-position = Vector2(368, 312)
-scale = Vector2(1.37286, 1.39281)
-sprite_frames = SubResource("SpriteFrames_uq7xt")
-frame = 2
-frame_progress = 0.342117
 
 [node name="Walls" parent="." instance=ExtResource("1_hyrxb")]
 
@@ -138,6 +91,14 @@ scale = Vector2(0.69265, 0.68934)
 texture = ExtResource("4_jh7e4")
 metadata/_edit_lock_ = true
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_5y0ed")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 135.0
 offset_top = 37.0
@@ -154,3 +115,9 @@ scale = Vector2(1.36835, 1.36835)
 position = Vector2(367, 69)
 scale = Vector2(0.988739, 1)
 texture = ExtResource("9_100ve")
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_lchvg")]
+offset_left = 156.0
+offset_top = 460.0
+offset_right = 156.0
+offset_bottom = 460.0

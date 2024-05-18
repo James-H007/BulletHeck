@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://csgkc3ffic2s"]
+[gd_scene load_steps=71 format=3 uid="uid://csgkc3ffic2s"]
 
 [ext_resource type="Script" path="res://boss.gd" id="1_b5sy1"]
 [ext_resource type="Shader" path="res://whiten.gdshader" id="2_7bb6v"]
@@ -13,10 +13,68 @@
 [ext_resource type="Script" path="res://Rotator.gd" id="10_srfnn"]
 [ext_resource type="PackedScene" uid="uid://b52qbdiqe1lmx" path="res://boss_bullet2.tscn" id="11_5x46f"]
 [ext_resource type="Texture2D" uid="uid://bj10exmrg14s8" path="res://UI/Boss_Title.png" id="12_v3slk"]
+[ext_resource type="Texture2D" uid="uid://dsbqx3bf5nbph" path="res://background/loop-Sheet.png" id="14_m0sm4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e8q3e"]
 shader = ExtResource("2_7bb6v")
 shader_parameter/whiten = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhk8k"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(0, 0, 350, 381)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwggk"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(350, 0, 350, 381)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqypr"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(700, 0, 350, 381)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlfj2"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(1050, 0, 350, 381)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knjmo"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(1400, 0, 350, 381)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n4ps"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(1750, 0, 350, 381)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nra2s"]
+atlas = ExtResource("14_m0sm4")
+region = Rect2(2100, 0, 350, 381)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8t0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhk8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwggk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqypr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlfj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knjmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n4ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nra2s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7x5sd"]
 atlas = ExtResource("3_rdow5")
@@ -344,11 +402,19 @@ unique_name_in_owner = true
 [node name="BossPoint2" type="Marker2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Barrier" type="AnimatedSprite2D" parent="."]
+position = Vector2(-11.5718, -11.5718)
+scale = Vector2(0.508527, 0.515916)
+sprite_frames = SubResource("SpriteFrames_g8t0n")
+frame = 5
+frame_progress = 0.91301
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -40)
 scale = Vector2(0.654175, 0.654175)
 sprite_frames = SubResource("SpriteFrames_etfle")
-frame_progress = 0.436243
+frame_progress = 0.0311265
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-11.5718, -34.7154)
@@ -377,6 +443,7 @@ max_value = 1000.0
 step = 1.0
 value = 1000.0
 show_percentage = false
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
 visible = false

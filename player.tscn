@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqwbfbvvmc5f6"]
+[gd_scene load_steps=9 format=3 uid="uid://dqwbfbvvmc5f6"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4nxw4"]
+[ext_resource type="FontFile" uid="uid://lj0yld1cmfbe" path="res://UI/MSMINCHO.TTF" id="2_qfhvy"]
 [ext_resource type="Texture2D" uid="uid://djowo00wmbwvc" path="res://body.png" id="3_5afur"]
 [ext_resource type="PackedScene" uid="uid://cv3nwus5cs7sf" path="res://gun.tscn" id="3_u3hi1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_673c8"]
-bg_color = Color(0.486423, 0.115253, 0.310194, 1)
+bg_color = Color(0.493211, 0.450953, 0.467567, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alxf7"]
-bg_color = Color(0.81159, 0.724476, 0.868834, 1)
+bg_color = Color(0.900531, 0.195604, 0.344583, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bkge"]
 size = Vector2(75.0527, 56.2294)
@@ -23,6 +24,24 @@ script = ExtResource("1_4nxw4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
+
+[node name="HealthKit" type="Label" parent="CanvasLayer"]
+offset_left = 714.0
+offset_top = 630.0
+offset_right = 838.0
+offset_bottom = 681.0
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_qfhvy")
+theme_override_font_sizes/font_size = 50
+text = "x3
+"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+offset_left = 849.0
+offset_top = 751.32
+offset_right = 853.0
+offset_bottom = 778.32
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false

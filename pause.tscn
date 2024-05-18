@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh2a5gt1eovx"]
+
+[ext_resource type="Script" path="res://pause.gd" id="1_2akni"]
+[ext_resource type="FontFile" uid="uid://lj0yld1cmfbe" path="res://UI/MSMINCHO.TTF" id="2_de318"]
+[ext_resource type="Shader" path="res://UI/blur.gdshader" id="2_f2q0u"]
+
+[sub_resource type="Theme" id="Theme_0hbq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3waj"]
+bg_color = Color(0.192224, 0.681802, 0.656876, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbdba"]
+shader = ExtResource("2_f2q0u")
+shader_parameter/amount = 0.474
+
+[sub_resource type="Theme" id="Theme_v6mno"]
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2akni")
+
+[node name="Unpause" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 66.0
+offset_top = -45.0
+offset_right = 406.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0hbq1")
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.847059, 0.0313726, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_de318")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3waj")
+text = "Unpause"
+
+[node name="Blur" type="CanvasLayer" parent="."]
+layer = 41
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Blur"]
+material = SubResource("ShaderMaterial_xbdba")
+offset_right = 1200.0
+offset_bottom = 1000.0
+theme = SubResource("Theme_v6mno")
+
+[connection signal="pressed" from="Unpause" to="." method="_on_unpause_pressed"]
