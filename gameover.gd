@@ -12,10 +12,11 @@ func _process(delta):
 
 
 
-
-
-
-func _on_unpause_pressed():
-	$Click.play()
-	hide()
+func _on_retry_button_pressed():
+	#$Click.play()
+	#await get_tree().create_timer(.3).timeout
+	#TransitionScreen.transition()
+	#await TransitionScreen.on_transition_finished
 	get_tree().paused = false
+	get_tree().change_scene_to_file("res://game.tscn")
+	

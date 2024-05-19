@@ -12,9 +12,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
+		$Click.play()
 		get_tree().paused = true
 		#$PauseMenu.Blur.visible = true
 		$PauseMenu.show()
+		#$RetryMenu.show()
+	if $Player.currentHealth <= 0:
+		get_tree().paused = true
+		$RetryMenu.show()
 		
 	
 	#if  $Boss.currentHealth < 800 and $Boss.currentHealth > 500:

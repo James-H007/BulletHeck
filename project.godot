@@ -14,9 +14,13 @@ config/name="Bullet_Heck_Jam"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TransitionScreen="*res://transition_screen.tscn"
+
 [display]
 
-window/size/viewport_width=1200
+window/size/viewport_width=900
 window/size/viewport_height=1000
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"

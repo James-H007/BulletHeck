@@ -46,7 +46,7 @@ func take_damage():
 	#$AnimatedSprite2D.modulate = Color.DARK_RED
 	#await get_tree().create_timer(0.1).timeout
 	#$AnimatedSprite2D.modulate = Color.WHITE
-	currentHealth -= 4.0
+	currentHealth -= 3.0
 	$UI/ProgressBar.value = currentHealth
 	print($UI/ProgressBar.value)
 	if currentHealth <= 0.0:

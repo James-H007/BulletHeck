@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh2a5gt1eovx"]
+[gd_scene load_steps=9 format=3 uid="uid://dggaoxlqsp3wi"]
 
-[ext_resource type="Script" path="res://pause.gd" id="1_2akni"]
-[ext_resource type="FontFile" uid="uid://lj0yld1cmfbe" path="res://UI/MSMINCHO.TTF" id="2_de318"]
-[ext_resource type="Shader" path="res://UI/blur.gdshader" id="2_f2q0u"]
-[ext_resource type="AudioStream" uid="uid://ct2my4ig74g8t" path="res://Sound/Pause_retry.wav" id="4_udrnw"]
+[ext_resource type="Script" path="res://gameover.gd" id="1_37r7c"]
+[ext_resource type="FontFile" uid="uid://lj0yld1cmfbe" path="res://UI/MSMINCHO.TTF" id="2_4tjh3"]
+[ext_resource type="Shader" path="res://UI/blur.gdshader" id="3_6lyjb"]
+[ext_resource type="AudioStream" uid="uid://ct2my4ig74g8t" path="res://Sound/Pause_retry.wav" id="4_aiee8"]
 
 [sub_resource type="Theme" id="Theme_0hbq1"]
 
@@ -15,7 +15,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xbdba"]
-shader = ExtResource("2_f2q0u")
+shader = ExtResource("3_6lyjb")
 shader_parameter/amount = 0.474
 
 [sub_resource type="Theme" id="Theme_v6mno"]
@@ -28,9 +28,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2akni")
+script = ExtResource("1_37r7c")
 
-[node name="Unpause" type="Button" parent="."]
+[node name="retryButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,10 +47,10 @@ theme = SubResource("Theme_0hbq1")
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.847059, 0.0313726, 0, 1)
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_de318")
+theme_override_fonts/font = ExtResource("2_4tjh3")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_h3waj")
-text = "Unpause"
+text = "Retry?"
 
 [node name="Blur" type="CanvasLayer" parent="."]
 layer = 41
@@ -63,6 +63,6 @@ offset_bottom = 1000.0
 theme = SubResource("Theme_v6mno")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_udrnw")
+stream = ExtResource("4_aiee8")
 
-[connection signal="pressed" from="Unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="retryButton" to="." method="_on_retry_button_pressed"]

@@ -38,6 +38,7 @@ func _physics_process(delta):
 		#for mob in overlapping_mobs:
 			#print(mob.name)
 		currentHealth -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		$Damaged.play()
 		%Health_bar.value = currentHealth
 		if currentHealth <= 0.0:
 			health_depleted.emit()
@@ -52,6 +53,7 @@ func clamp_to_viewport():
 	
 func take_damage():
 	if !is_invincible:
+		$Damaged.play()
 		currentHealth -= 5.0
 		is_invincible = true
 		$Sprite2D.self_modulate.a = 0.5
@@ -65,5 +67,6 @@ func take_damage():
 	
 func heal():
 	if currentHealth > 0 and currentHealth < 100:
+		$Heal.play()
 		currentHealth += 5.0
 		%Health_bar.value = currentHealth

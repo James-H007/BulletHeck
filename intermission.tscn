@@ -1,53 +1,57 @@
-[gd_scene load_steps=71 format=3 uid="uid://csgkc3ffic2s"]
+[gd_scene load_steps=62 format=3 uid="uid://cvt64b17oibxw"]
 
-[ext_resource type="Script" path="res://boss.gd" id="1_b5sy1"]
-[ext_resource type="Shader" path="res://whiten.gdshader" id="2_7bb6v"]
-[ext_resource type="Script" path="res://FiniteStateMachine.gd" id="3_kr7ml"]
-[ext_resource type="Texture2D" uid="uid://bg7joutnvswyr" path="res://Boss/conductorsheet2.png" id="3_rdow5"]
-[ext_resource type="Script" path="res://Idle.gd" id="4_2xcld"]
-[ext_resource type="Script" path="res://HomingMissile.gd" id="5_em0x8"]
-[ext_resource type="PackedScene" uid="uid://dfnsoe8pf10gg" path="res://boss_bullet.tscn" id="5_p11uh"]
-[ext_resource type="Script" path="res://Summon.gd" id="7_8ufb1"]
-[ext_resource type="PackedScene" uid="uid://cxyq2dqcc4uka" path="res://turret.tscn" id="8_432ql"]
-[ext_resource type="PackedScene" uid="uid://vg3r6e38hqj5" path="res://turret2.tscn" id="9_3euor"]
-[ext_resource type="Script" path="res://Rotator.gd" id="10_srfnn"]
-[ext_resource type="PackedScene" uid="uid://b52qbdiqe1lmx" path="res://boss_bullet2.tscn" id="11_5x46f"]
-[ext_resource type="Texture2D" uid="uid://bj10exmrg14s8" path="res://UI/Boss_Title.png" id="12_v3slk"]
-[ext_resource type="Texture2D" uid="uid://dsbqx3bf5nbph" path="res://background/loop-Sheet.png" id="14_m0sm4"]
+[ext_resource type="Script" path="res://intermission.gd" id="1_5bu1y"]
+[ext_resource type="Texture2D" uid="uid://cd45akbmq8xu7" path="res://background/81DnkmWlKVL.jpg" id="1_kgv4t"]
+[ext_resource type="AudioStream" uid="uid://dr21j52aohrda" path="res://Sound/Applause.mp3" id="2_5oujr"]
+[ext_resource type="Texture2D" uid="uid://bqitbst01oir5" path="res://background/crow_1.png" id="3_omnd7"]
+[ext_resource type="Texture2D" uid="uid://cye72km3tgsmt" path="res://background/Crow_2.png" id="4_mv274"]
+[ext_resource type="Texture2D" uid="uid://bg7joutnvswyr" path="res://Boss/conductorsheet2.png" id="6_ntoag"]
+[ext_resource type="Texture2D" uid="uid://dsbqx3bf5nbph" path="res://background/loop-Sheet.png" id="6_q5qch"]
+[ext_resource type="FontFile" uid="uid://lj0yld1cmfbe" path="res://UI/MSMINCHO.TTF" id="8_5wwkv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8q3e"]
-shader = ExtResource("2_7bb6v")
-shader_parameter/whiten = true
+[sub_resource type="SpriteFrames" id="SpriteFrames_xj3un"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_omnd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mv274")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhk8k"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(0, 0, 350, 381)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwggk"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(350, 0, 350, 381)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqypr"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(700, 0, 350, 381)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlfj2"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(1050, 0, 350, 381)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_knjmo"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(1400, 0, 350, 381)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5n4ps"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(1750, 0, 350, 381)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nra2s"]
-atlas = ExtResource("14_m0sm4")
+atlas = ExtResource("6_q5qch")
 region = Rect2(2100, 0, 350, 381)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_g8t0n"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_anyt5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -77,174 +81,174 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7x5sd"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(0, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5nwc"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(454, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0ktv"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(908, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxewx"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(1362, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4iwfp"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(1816, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn8wu"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(2270, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3l80"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(2724, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc8eb"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(3178, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1awt"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(3632, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cl6s6"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(4086, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hiese"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(4540, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lj2nm"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(4994, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkweo"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(5448, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rmq2"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(5902, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n646r"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(6356, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhjhb"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(6810, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytu2c"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(7264, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs6tn"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(7718, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwmcq"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(8172, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbmg1"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(8626, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujx16"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(9080, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_in4ql"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(9534, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekuhf"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(9988, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rixx0"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(10442, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_enjki"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(10896, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_axmov"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(11350, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44ef1"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(11804, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frwwd"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(12258, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eerhn"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(12712, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqjed"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(13166, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmh08"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(13620, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imxta"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(14074, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mi1j"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(14528, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahkbi"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(14982, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1164c"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(15436, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nks4d"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(15890, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h8ic"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(16344, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhmwx"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(16798, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldnia"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(17252, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmgdp"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(17706, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmnma"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(18160, 0, 454, 449)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_estr2"]
-atlas = ExtResource("3_rdow5")
+atlas = ExtResource("6_ntoag")
 region = Rect2(18614, 0, 454, 449)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_etfle"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge4vy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -378,158 +382,85 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yl4h"]
-size = Vector2(167.859, 201.253)
+[sub_resource type="Theme" id="Theme_bsipd"]
+default_font = ExtResource("8_5wwkv")
+default_font_size = 100
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8vow"]
+[node name="Intermission" type="CanvasLayer"]
+script = ExtResource("1_5bu1y")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsq0c"]
-bg_color = Color(0.540732, 0.15657, 0.290625, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fyyaw"]
-radius = 450.0
-
-[node name="Boss" type="CharacterBody2D"]
-scale = Vector2(0.691335, 0.691335)
-collision_layer = 10
-collision_mask = 14
-script = ExtResource("1_b5sy1")
-whiten_material = SubResource("ShaderMaterial_e8q3e")
-
-[node name="BossPoint" type="Marker2D" parent="."]
-unique_name_in_owner = true
-
-[node name="BossPoint2" type="Marker2D" parent="."]
-unique_name_in_owner = true
-
-[node name="Barrier" type="AnimatedSprite2D" parent="."]
-position = Vector2(-11.5718, -11.5718)
-scale = Vector2(0.508527, 0.515916)
-sprite_frames = SubResource("SpriteFrames_g8t0n")
-frame = 5
-frame_progress = 0.91301
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8, -40)
-scale = Vector2(0.654175, 0.654175)
-sprite_frames = SubResource("SpriteFrames_etfle")
-frame_progress = 0.0311265
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11.5718, -34.7154)
-scale = Vector2(1, 1.02236)
-shape = SubResource("RectangleShape2D_3yl4h")
-debug_color = Color(0.855138, 0.229418, 0.715432, 0.42)
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
-custom_minimum_size = Vector2(200, 0)
-anchors_preset = -1
-anchor_left = 0.333
-anchor_top = 0.832
-anchor_right = 0.333
-anchor_bottom = 0.832
-offset_left = -147.7
-offset_top = -728.0
-offset_right = 284.3
-offset_bottom = -720.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_g8vow")
-theme_override_styles/fill = SubResource("StyleBoxFlat_xsq0c")
-max_value = 1000.0
-step = 1.0
-value = 1000.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="UI/ProgressBar"]
-visible = false
-layout_mode = 0
-offset_left = 4.0
-offset_top = -19.0
-offset_right = 90.0
-offset_bottom = 4.0
-text = "Music Boss"
-
-[node name="Label" type="Label" parent="UI"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -11.5
-offset_right = 39.0
-offset_bottom = 11.5
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Boss Slain"
+color = Color(0, 0, 0, 1)
 
-[node name="debug" type="Label" parent="."]
-visible = false
-offset_left = -32.0
-offset_top = 136.0
-offset_right = 17.0
-offset_bottom = 159.0
-text = "debug"
-metadata/_edit_use_anchors_ = true
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.597725, 0.679062)
+texture = ExtResource("1_kgv4t")
+metadata/_edit_lock_ = true
 
-[node name="PlayerDetection" type="Area2D" parent="."]
-visible = false
-collision_layer = 8
-collision_mask = 12
+[node name="Crow1" type="AnimatedSprite2D" parent="."]
+position = Vector2(139.002, 705.308)
+scale = Vector2(0.244665, 0.277959)
+sprite_frames = SubResource("SpriteFrames_xj3un")
+frame = 1
+frame_progress = 0.226267
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-shape = SubResource("CircleShape2D_fyyaw")
-debug_color = Color(0.74759, 0.279555, 0.907902, 0.42)
+[node name="Crow2" type="AnimatedSprite2D" parent="."]
+position = Vector2(755.998, 705.308)
+scale = Vector2(0.244665, 0.277959)
+sprite_frames = SubResource("SpriteFrames_xj3un")
+frame = 1
+frame_progress = 0.226267
+flip_h = true
 
-[node name="FiniteStateMachine" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("3_kr7ml")
+[node name="Applause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5oujr")
+volume_db = -16.88
+mix_target = 1
+max_polyphony = 2
 
-[node name="HomingMissile" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("5_em0x8")
-bullet_node = ExtResource("5_p11uh")
+[node name="Barrier" type="AnimatedSprite2D" parent="."]
+position = Vector2(438, 300)
+scale = Vector2(1.51091, 1.53286)
+sprite_frames = SubResource("SpriteFrames_anyt5")
 
-[node name="HomingTimer" type="Timer" parent="FiniteStateMachine/HomingMissile"]
-unique_name_in_owner = true
-autostart = true
+[node name="MurderMaestro" type="AnimatedSprite2D" parent="."]
+position = Vector2(458, 277)
+scale = Vector2(1.31674, 1.31674)
+sprite_frames = SubResource("SpriteFrames_ge4vy")
+metadata/_edit_lock_ = true
 
-[node name="Idle" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("4_2xcld")
+[node name="Title" type="Label" parent="."]
+offset_left = 115.0
+offset_top = 894.0
+offset_right = 815.0
+offset_bottom = 1089.0
+theme = SubResource("Theme_bsipd")
+text = "MURDER MAESTRO"
 
-[node name="Summon" type="Node2D" parent="FiniteStateMachine"]
-scale = Vector2(0.99342, 0.726125)
-script = ExtResource("7_8ufb1")
-turret_node = ExtResource("8_432ql")
-turret_node2 = ExtResource("9_3euor")
+[node name="Title2" type="Label" parent="."]
+offset_left = 274.0
+offset_top = 838.0
+offset_right = 974.0
+offset_bottom = 1033.0
+theme = SubResource("Theme_bsipd")
+theme_type_variation = &"GraphNodeTitleLabel"
+theme_override_fonts/font = ExtResource("8_5wwkv")
+theme_override_font_sizes/font_size = 60
+text = "Please wait..."
 
-[node name="SummonTimer" type="Timer" parent="FiniteStateMachine/Summon"]
-unique_name_in_owner = true
-wait_time = 1.5
-one_shot = true
+[node name="BlinkTimer" type="Timer" parent="."]
 
-[node name="RotateAttack" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_srfnn")
-bullet_node = ExtResource("11_5x46f")
-
-[node name="StopTimer" type="Timer" parent="FiniteStateMachine/RotateAttack"]
-wait_time = 3.0
-
-[node name="ShootTimer" type="Timer" parent="FiniteStateMachine/RotateAttack"]
-
-[node name="Rotator" type="Node2D" parent="FiniteStateMachine/RotateAttack"]
-
-[node name="BossTitle" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-23.1436, -324.011)
-texture = ExtResource("12_v3slk")
-
-[connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
-[connection signal="timeout" from="FiniteStateMachine/HomingMissile/HomingTimer" to="FiniteStateMachine/HomingMissile" method="_on_timer_timeout"]
-[connection signal="timeout" from="FiniteStateMachine/Summon/SummonTimer" to="FiniteStateMachine/Summon" method="_on_summon_timer_timeout"]
-[connection signal="timeout" from="FiniteStateMachine/RotateAttack/StopTimer" to="FiniteStateMachine/RotateAttack" method="_on_stop_timer_timeout"]
-[connection signal="timeout" from="FiniteStateMachine/RotateAttack/ShootTimer" to="FiniteStateMachine/RotateAttack" method="_on_shoot_timer_timeout"]
+[connection signal="finished" from="Applause" to="." method="_on_applause_finished"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]

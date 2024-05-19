@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqwbfbvvmc5f6"]
+[gd_scene load_steps=12 format=3 uid="uid://dqwbfbvvmc5f6"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4nxw4"]
+[ext_resource type="Texture2D" uid="uid://dg88ybbe3rie" path="res://UI/medkit.png" id="2_h38ar"]
 [ext_resource type="FontFile" uid="uid://lj0yld1cmfbe" path="res://UI/MSMINCHO.TTF" id="2_qfhvy"]
 [ext_resource type="Texture2D" uid="uid://djowo00wmbwvc" path="res://body.png" id="3_5afur"]
 [ext_resource type="PackedScene" uid="uid://cv3nwus5cs7sf" path="res://gun.tscn" id="3_u3hi1"]
+[ext_resource type="AudioStream" uid="uid://cruf573ofiqpu" path="res://Sound/Damage.wav" id="6_ndusm"]
+[ext_resource type="AudioStream" uid="uid://c4dnd5olt2oj3" path="res://Sound/Heal.wav" id="7_wb8qb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_673c8"]
 bg_color = Color(0.493211, 0.450953, 0.467567, 1)
@@ -25,11 +28,17 @@ script = ExtResource("1_4nxw4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 
+[node name="health" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(673, 658)
+scale = Vector2(1.59655, 1.60531)
+texture = ExtResource("2_h38ar")
+
 [node name="HealthKit" type="Label" parent="CanvasLayer"]
 offset_left = 714.0
 offset_top = 630.0
 offset_right = 838.0
 offset_bottom = 681.0
+scale = Vector2(1, 1.00549)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qfhvy")
 theme_override_font_sizes/font_size = 50
@@ -105,3 +114,10 @@ visibility_layer = 2
 shape = SubResource("CircleShape2D_vaqim")
 debug_color = Color(0.972549, 0, 0.443137, 0.419608)
 metadata/_edit_lock_ = true
+
+[node name="Damaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ndusm")
+
+[node name="Heal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wb8qb")
+volume_db = -20.104
